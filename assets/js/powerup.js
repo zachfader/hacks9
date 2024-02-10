@@ -9,7 +9,7 @@ new Vue({
                     id: "1009381",
                     type: "Weird",
                     strike: "Fireworks",
-                    dmg: 40,
+                    dmg: 45,
                     health: 100
                 },{
                     //Hawkeye
@@ -24,7 +24,7 @@ new Vue({
                     type: "Strength",
                     strike: "Billy Club Bash",
                     dmg: 40,
-                    health: 110
+                    health: 120
                  },{ 
                     //Domino
                     id: "1009277",
@@ -41,29 +41,29 @@ new Vue({
                     id: "1010763",
                     type: "Cosmic",
                     strike: "",
-                    dmg: 0,
+                    dmg: 45,
                     health: 130
                 },{ 
                     //Gambit
                     id: "1009313",
                     type: "Weird",
                     strike: "Kinetic Cards",
-                    dmg: 0,
-                    health: 
+                    dmg: 50,
+                    health: 150
                 },{ 
                     //Spider-Man
                     id: "1016181",
                     type: "Tech",
                     strike: "Venom Blast",
                     dmg: 55,
-                    health: 130
+                    health: 140
                 },{ 
                     //Mystique
                     id:"1009465",
                     type: "Weird",
                     strike: "",
                     dmg: 50,
-                    health: 140
+                    health: 160
                 }
             ],
             // Tier 3
@@ -73,29 +73,29 @@ new Vue({
                     id: "1009220", 
                     type: "Strength",
                     strike: "Shield Throw",
-                    dmg: 65,
-                    health: 150
+                    dmg: 60,
+                    health: 210
             },{ 
                     // Iron Man
                     id: "1009368",
                     type: "Tech",
                     strike: "Repulsor Blast",
                     dmg: 70,
-                    health: 160
+                    health: 200
             },{ 
                     // Rogue 
                     id: "1009546",
                     type: "Strength",
                     strike: "Power Drain",
                     dmg: 65,
-                    health: 155
+                    health: 190
             },{ 
                     //Wolverine
                     id: "1009718",
                     type: "Strength",
                     strike: "Claw Slash",
                     dmg: 70,
-                    health: 160
+                    health: 200
             }
             ],
             // Tier 4
@@ -106,59 +106,59 @@ new Vue({
                     type: "Weird",
                     stike: "Lightning Bolt",
                     dmg: 85,
-                    health: 170
+                    health: 250
                 },{
                     //She-Hulk
                     id: "1009583", 
                     type: "Strength",
                     strike: "Smash",
                     dmg: 80,
-                    health: 185
+                    health: 270
                 },{
                     //Thor
                     id: "1009664",
                     type: "Cosmic",
                     strike: "Mjolnir Strike",
-                    dmg: 90,
-                    health: 180
+                    dmg: 85,
+                    health: 265
                 },{
                     //Captain Marvel
                     id: "1010338",
                     type: "Cosmic",
                     strike: "Photon Blast",
                     dmg: 90,
-                    health: 180        
+                    health: 255        
             }
             ],
             // Tier 5
             [{
-                //Ultron
-                id: "1009685", 
-                type: "Tech",
-                strike: "Bot Swarm",
-                dmg: 90,
-                health: 200
+                    //Ultron
+                    id: "1009685", 
+                    type: "Tech",
+                    strike: "Bot Swarm",
+                    dmg: 90,
+                    health: 300
             },{
-                //Scarlet Witch
-                id: "1009562", 
-                type: "Weird",
-                strike: "Chaos Magic",
-                dmg:100,
-                health: 190
+                    //Scarlet Witch
+                    id: "1009562", 
+                    type: "Weird",
+                    strike: "Chaos Magic",
+                    dmg: 100,
+                    health: 280
             },{
-                //Adam Warlock
-                id: "1010354", 
-                type: "Cosmic",
-                strike: "Quantum Surge",
-                dmg:95,
-                health:200
+                    //Adam Warlock
+                    id: "1010354", 
+                    type: "Cosmic",
+                    strike: "Quantum Surge",
+                    dmg: 85,
+                    health: 315
             },{
-                //Jean Grey
-                id: "1009327",
-                type: "Cosmic",
-                strike: "Phoenix Flame",
-                dmg:95,
-                health:210
+                    //Jean Grey
+                    id: "1009327",
+                    type: "Cosmic",
+                    strike: "Phoenix Flame",
+                    dmg: 90,
+                    health: 300
             }
         ]
         ],
