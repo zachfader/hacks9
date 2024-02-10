@@ -7,22 +7,21 @@
     <title>PowerUp</title>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <link href="assets/powerup.css" rel="stylesheet">
-    <!--<link rel="icon" type="image/x-icon" href="../assets/favicon.ico">-->
-</head>
-<body>
-    <button onclick="deal()">Deal</button><br>
-    <h2 class = 'a' id="p1Header">Player One Hand:</h2>
-    <div id="player1"></div><br>
-    <h2 class = 'a' id="p2Header">Player Two Hand:</h2>
-    <div id="player2"></div><br>
-    <button onclick="discard()">Discard</button>
-    <button onclick="reset()">Reset</button><br>
-
-    <script src="assets/js/powerup.js"></script>
+    <script src="assets/js/md5.min.js"></script>
     <script src="assets/js/hero.js"></script>
     <script src="assets/js/power.js"></script>
-
+    <link href="assets/powerup.css" rel="stylesheet">
+</head>
+<body>
+    <section id='powerup'>
+        <div v-for="eachAlly in allyData">
+            <hero :hero="eachAlly"></hero>
+        </div>
+        <div v-for="eachEnemy in enemyData">
+            <hero :hero="eachEnemy"></hero>
+        </div>
+    </section>
+    <script src="assets/js/powerup.js"></script>
 </body>
 </html>
 
