@@ -13,12 +13,19 @@
     <link href="assets/powerup.css" rel="stylesheet">
 </head>
 <body>
-    <section id='powerup'>
-        <div v-for="eachCharacter in p1Characters">
-            <character :char="eachCharacter"></character>
-        </div>
-        <div v-for="eachCharacter in p2Characters">
-            <character :char="eachCharacter"></character>
+    <section id="powerup">
+        <div class="field">
+            <ul class="playerField">
+                <li v-for="eachCharacter in p1Characters">
+                    <character :char="eachCharacter" @click.native="playMove(eachCharacter.id)"></character>
+                </li>
+            </ul>
+            <div class="fieldSplitLine"></div>
+            <ul class="enemyField">
+                <li v-for="eachCharacter in p2Characters">
+                    <character :char="eachCharacter" @click.native="console.log(eachCharacter.id)"></character>
+                </li>
+            </ul>
         </div>
     </section>
     <script src="assets/js/powerup.js"></script>
