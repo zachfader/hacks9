@@ -7,8 +7,8 @@ Vue.component('hero', {
     ,template:
         /*html*/
         `<div id="hero">
-            <p>{{name}}</p>
             <img :src="getImg()">
+            <p>{{name}}</p>
         </div>`,
     data() {
         return {

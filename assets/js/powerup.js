@@ -17,30 +17,28 @@ new Vue({
     },
     methods: {
         async loadChars() {
-            r1 = Math.floor(Math.random() * 4);
-            r2 = Math.floor(Math.random() * 4);
+
             const publicKey = '044a96a9f1fb46edb7605ba331cccf4d';
             const privateKey = '3c5994b84cd1776f0bf0d74c353ee3145edc7416';
             const timestamp = new Date().getTime().toString();
-
-            
             const hash = md5(timestamp + privateKey + publicKey);
-            for (i = 0; i < 5; i ++) {
-                const allyUrl = 'http://gateway.marvel.com/v1/public/characters/' + this.charData[i][r1] + '?ts=' +timestamp + '&apikey=' +publicKey + '&hash=' + hash;
-                const enemyUrl = 'http://gateway.marvel.com/v1/public/characters/' + this.charData[i][r2] + '?ts=' +timestamp + '&apikey=' +publicKey + '&hash=' + hash;
-                try {
-                console.log(allyUrl);
-                 let allyResponse = await axios.get(allyUrl)
-                 let allies = allyResponse.data.results;
-                 this.allyData(allies);
 
-                 console.log(enemyUrl);
-                 let enemyResponse = await axios.get(enemyUrl);
-                 let enemies = enemyResponse.data.data.results;
-                 this.enemyData.push(enemies);
-                } catch (err) {
-                    console.log(err)
-                }
+            for (i = 0; i < 5; i ++) {
+                    const allyUrl = 'http://gateway.marvel.com/v1/public/characters/' + this.charData[i][Math.floor(Math.random() * 4)] + '?ts=' +timestamp + '&apikey=' +publicKey + '&hash=' + hash;
+                    const enemyUrl = 'http://gateway.marvel.com/v1/public/characters/' + this.charData[i][Math.floor(Math.random() * 4)] + '?ts=' +timestamp + '&apikey=' +publicKey + '&hash=' + hash;
+                    try {
+                    console.log(allyUrl);
+                    let allyResponse = await axios.get(allyUrl)
+                    let allies = allyResponse.data.data.results[0];
+                    this.allyData.push(allies);
+
+                    console.log(enemyUrl);
+                    let enemyResponse = await axios.get(enemyUrl);
+                    let enemies = enemyResponse.data.data.results[0];
+                    this.enemyData.push(enemies);
+                    } catch (err) {
+                        console.log(err)
+                    }
             }
         },
         async loadPowers() {
