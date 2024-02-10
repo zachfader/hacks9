@@ -110,58 +110,59 @@ new Vue({
                     dmg: 0,
                     health: 0
                 },{
-                    //Storm
-                    id: "1009629", 
-                    type: "Weird",
-                    stike: "",
+                    //She-Hulk
+                    id: "1009583", 
+                    type: "Strength",
+                    strike: "",
                     dmg: 0,
                     health: 0
                 },{
-                    //Storm
-                    id: "1009629", 
-                    type: "Weird",
-                    stike: "",
+                    //Thor
+                    id: "1009664",
+                    type: "Cosmic",
+                    strike: "",
                     dmg: 0,
                     health: 0
                 },{
-                    //Storm
-                    id: "1009629", 
-                    type: "Weird",
-                    stike: "",
+                    //Captain Marvel
+                    id: "1010338",
+                    type: "Cosmic",
+                    strike: "",
                     dmg: 0,
-                    health: 0
-                },
+                    health: 0        
+            }
             ],
             // Tier 5
             [{
-                //Storm
-                id: "1009629", 
-                type: "Weird",
-                stike: "",
+                //Ultron
+                id: "1009685", 
+                type: "Tech",
+                strike: "",
                 dmg: 0,
                 health: 0
             },{
-                //Storm
-                id: "1009629", 
+                //Scarlet Witch
+                id: "1009562", 
                 type: "Weird",
-                stike: "",
-                dmg: 0,
+                strike: "",
+                dmg:0,
                 health: 0
             },{
-                //Storm
-                id: "1009629", 
-                type: "Weird",
-                stike: "",
-                dmg: 0,
-                health: 0
+                //Adam Warlock
+                id: "1010354", 
+                type: "Cosmic",
+                strike: "",
+                dmg:0,
+                health:0
             },{
-                //Storm
-                id: "1009629", 
-                type: "Weird",
-                stike: "",
-                dmg: 0,
-                health: 0
-            },]
+                //Jean Grey
+                id: "1009327",
+                type: "Cosmic",
+                strike: "",
+                dmg:0,
+                health:0
+            }
+        ]
         ],
         p1Characters: [],
         p2Characters: [], 
