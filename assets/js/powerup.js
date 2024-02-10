@@ -4,11 +4,164 @@ new Vue({
         whoseTurn: 1,
         gameOver: false,
         charData: [
-            ["1009381", "1009262", "1010808", "1009277"],
-            ["1010763", "1009313", "1016181", "1009220"],
-            ["1009465", "1009368", "1009546", "1009718"],
-            ["1009629", "1009583", "1009664", "1010338"],
-            ["1009685", "1009562", "1010354", "1009327"]
+            // Tier 1
+            [
+                {
+                    //Jubilee
+                    id: "1009381",
+                    type: "Weird",
+                    strike: "Fireworks",
+                    dmg: 0,
+                    health: 0
+                }, {
+                    //Hawkeye
+                    id: "1009262",
+                    type: "Tech",
+                    strike: "Skillshot",
+                    dmg: 0,
+                    health: 0
+                 },{
+                    //Daredevil
+                    id: "1010808",
+                    type: "Strength",
+                    strike: "",
+                    dmg: 0,
+                    health: 0
+                 }, { 
+                    //Domino
+                    id: "1009277",
+                    type: "Tech",
+                    strike: "",
+                    dmg: 0,
+                    health: 0,
+                }
+            ],
+            //Tier 2
+            [
+                {
+                    //Gamora
+                    id: "1010763",
+                    type: "",
+                    strike: "",
+                    dmg: 0,
+                    health: 0
+                },{ 
+                    //Gambit
+                    id: "1009313",
+                    type: "Weird",
+                    strike: "",
+                    dmg: 0,
+                    health: 0
+                },{ 
+                    //Spider-Man
+                    id: "1016181",
+                    type: "Tech",
+                    strike: "",
+                    dmg: 0,
+                    health: 0
+                },{ 
+                    //Mystique
+                    id:"1009465",
+                    type: "Weird",
+                    strike: "",
+                    dmg: 0,
+                    health: 0
+                }
+            ],
+            // Tier 3
+            [
+                { 
+                    //Captain America
+                    id: "1009220", 
+                    type: "Strength",
+                    strike: "",
+                    dmg: 0,
+                    health: 0
+            },{ 
+                    // Iron Man
+                    id: "1009368",
+                    type: "Tech",
+                    strike: "",
+                    dmg: 0,
+                    health: 0
+            },{ 
+                    // Rogue 
+                    id: "1009546",
+                    type: "Strength",
+                    strike: "",
+                    dmg: 0,
+                    health: 0 
+            },{ 
+                    //Wolverine
+                    id: "1009718",
+                    type: "Strength",
+                    strike: "Claw Slash",
+                    dmg: 0,
+                    health: 0
+            }
+            ],
+            // Tier 4
+            [
+                {
+                    //Storm
+                    id: "1009629", 
+                    type: "Weird",
+                    stike: "",
+                    dmg: 0,
+                    health: 0
+                },{
+                    //Storm
+                    id: "1009629", 
+                    type: "Weird",
+                    stike: "",
+                    dmg: 0,
+                    health: 0
+                },{
+                    //Storm
+                    id: "1009629", 
+                    type: "Weird",
+                    stike: "",
+                    dmg: 0,
+                    health: 0
+                },{
+                    //Storm
+                    id: "1009629", 
+                    type: "Weird",
+                    stike: "",
+                    dmg: 0,
+                    health: 0
+                },
+            ],
+            // Tier 5
+            [{
+                //Storm
+                id: "1009629", 
+                type: "Weird",
+                stike: "",
+                dmg: 0,
+                health: 0
+            },{
+                //Storm
+                id: "1009629", 
+                type: "Weird",
+                stike: "",
+                dmg: 0,
+                health: 0
+            },{
+                //Storm
+                id: "1009629", 
+                type: "Weird",
+                stike: "",
+                dmg: 0,
+                health: 0
+            },{
+                //Storm
+                id: "1009629", 
+                type: "Weird",
+                stike: "",
+                dmg: 0,
+                health: 0
+            },]
         ],
         p1Characters: [],
         p2Characters: [], 
