@@ -203,6 +203,26 @@ new Vue({
         playMove(activeId) {
             console.log(this.whoseTurn);
             console.log(activeId);
+            if (whoseTurn = 1) {
+                this.setActive(activeId);
+                
+            }
+            else { 
+                curPlayer = p2Characters;
+            }
+        },
+        setActive(activeId) {
+            this.activeChar = activeId;
+            if (whoseTurn = 1) {
+                activeId = ;
+            }
+            activeId =      
+        },
+        setTarget(activeId) {
+            this.targetChar = activeId;
+        },
+        calcDmg(activeChar, actType, tarType ) {
+            
         },
         async isOver() {}
     }
