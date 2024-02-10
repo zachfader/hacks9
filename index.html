@@ -14,11 +14,11 @@
 </head>
 <body>
     <section id='powerup'>
-        <div v-for="eachAlly in allyData">
-            <hero :hero="eachAlly"></hero>
+        <div v-for="eachCharacter in p1Characters">
+            <character :char="eachAlly"></character>
         </div>
-        <div v-for="eachEnemy in enemyData">
-            <hero :hero="eachEnemy"></hero>
+        <div v-for="eachCharacter in p2Characters">
+            <character :char="eachCharacter"></character>
         </div>
     </section>
     <script src="assets/js/powerup.js"></script>
