@@ -1,0 +1,76 @@
+body {
+    position:relative
+}
+
+.card1 {
+    width: 140px; height: 210px; left: -166px; top: 0px; position: absolute; background: #D9D9D9; border-radius: 4px
+} 
+.card2 {
+    width: 140px; height: 210px; left: 498px; top: 0px; position: absolute; background: #D9D9D9; border-radius: 4px
+}
+.card3 {
+    width: 140px; height: 210px; left: 332px; top: 0px; position: absolute; background: #D9D9D9; border-radius: 4px
+}
+.card4 {
+    width: 140px; height: 210px; left: 166px; top: 0px; position: absolute; background: #D9D9D9; border-radius: 4px
+}
+.card5 {
+    width: 140px; height: 210px; left: -498px; top: 0px; position: absolute; background: #D9D9D9; border-radius: 4px
+}
+.card6 {
+    width: 140px; height: 210px; left: -332px; top: 0px; position: absolute; background: #D9D9D9; border-radius: 4px
+}
+.card7 {
+    width: 140px; height: 210px; left: 0px; top: 0px; position: absolute; background: #D9D9D9; border-radius: 4px
+}
+.playerCards {
+    width: 140px; height: 210px; left: 650px; top: 479px; position: absolute
+}
+.staticField {
+    width: 1240px; height: 710px; left: 100px; top: 0px; position: absolute; flex-direction: column; justify-content: flex-start; align-items: center; gap: 106px; display: inline-flex
+}
+.enemyField {
+    width: 1240px; height: 250px; border: 1px black solid 
+}
+.fieldLine {
+    width: 1440px; height: 0px; border: 6px black solid
+}
+.playerField {
+    width: 1240px; height: 250px; border: 1px black solid
+}
+.battleTokenArea {
+    width: 155px; height: 155px; left: 1262px; top: 278px; position: absolute
+}
+.battleTokenSlot {
+    width: 155px; height: 155px; left: 0px; top: 0px; position: absolute; background: #FFB72B; border-radius: 9999px; border: 5px black solid
+}
+.battleToken {
+    width: 113px; height: 113px; left: 21px; top: 23px; position: absolute
+}
+.bars {
+    width: 100px; height: 250px; left: 0px; top: 459px; position: absolute
+}
+.enemyHealth {
+    width: 100px; height: 250px; left: 0px; top: 1px; position: absolute; background: #D9D9D9
+}
+.enemyMana {
+    width: 100px; height: 250px; left: 1340px; top: 1px; position: absolute; background: #D9D9D9
+}
+.playerHealth {
+    width: 100px; height: 250px; left: 0px; top: -459px; position: absolute; background: #D9D9D9
+}
+.playerMana {
+    width: 100px; height: 250px; left: 1340px; top: -459px; position: absolute; background: #D9D9D9
+}
+.enemyCrtHealth {
+    width: 100px; height: 250px; left: 0px; top: 0px; position: absolute; background: #78B159
+}
+.enemyCrtMana {
+    width: 100px; height: 250px; left: 1340px; top: -458px; position: absolute; background: #257CFE
+}
+.playerCrtHealth {
+    width: 100px; height: 250px; left: 0px; top: -459px; position: absolute; background: #78B159
+}
+.playerCrtMana {
+    width: 100px; height: 250px; left: 1340px; top: 1px; position: absolute; background: #257CFE
+}
