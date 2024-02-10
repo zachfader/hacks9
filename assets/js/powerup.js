@@ -1,8 +1,12 @@
 new Vue({
     el: '#powerup',
     data: {
-        whoseTurn: 1,
+        enemies: [],
+        allies: [], 
+        activeChar: -1,
+        targetChar: -1,
         gameOver: false,
+        endMsg: "",
         charData: [
             // Tier 1
             [
@@ -12,28 +16,32 @@ new Vue({
                     type: "Weird",
                     strike: "Fireworks",
                     dmg: 45,
-                    health: 100
+                    maxHealth: 100,
+                    curHealth: 100
                 },{
                     //Hawkeye
                     id: "1010808",
                     type: "Tech",
                     strike: "Skillshot",
                     dmg: 40,
-                    health: 100
+                    maxHealth: 100,
+                    curHealth: 100
                  },{
                     //Daredevil
                     id: "1009262",
                     type: "Strength",
                     strike: "Billy Club Bash",
                     dmg: 40,
-                    health: 120
+                    maxHealth: 120,
+                    curHealth: 120
                  },{ 
                     //Domino
                     id: "1009277",
                     type: "Tech",
                     strike: "Lucky Shot",
                     dmg: 50,
-                    health: 110
+                    maxHealth: 110,
+                    curHealth: 110
                 }
             ],
             //Tier 2
@@ -42,30 +50,34 @@ new Vue({
                     //Gamora
                     id: "1010763",
                     type: "Cosmic",
-                    strike: "",
+                    strike: "Furious Slashes",
                     dmg: 45,
-                    health: 130
+                    maxHealth: 130,
+                    curHealth: 130
                 },{ 
                     //Gambit
                     id: "1009313",
                     type: "Weird",
                     strike: "Kinetic Cards",
                     dmg: 50,
-                    health: 150
+                    maxHealth: 150,
+                    curHealth: 150
                 },{ 
                     //Spider-Man
                     id: "1016181",
                     type: "Tech",
                     strike: "Venom Blast",
                     dmg: 55,
-                    health: 140
+                    maxHealth: 140,
+                    curHealth: 140
                 },{ 
                     //Mystique
                     id:"1009465",
                     type: "Weird",
-                    strike: "",
+                    strike: "Sneak Attack",
                     dmg: 50,
-                    health: 160
+                    maxHealth: 160,
+                    curHealth: 160
                 }
             ],
             // Tier 3
@@ -76,28 +88,32 @@ new Vue({
                     type: "Strength",
                     strike: "Shield Throw",
                     dmg: 60,
-                    health: 210
+                    maxHealth: 210,
+                    curHealth: 210
             },{ 
                     // Iron Man
                     id: "1009368",
                     type: "Tech",
                     strike: "Repulsor Blast",
                     dmg: 70,
-                    health: 200
+                    maxHealth: 200,
+                    curHealth: 200
             },{ 
                     // Rogue 
                     id: "1009546",
                     type: "Strength",
                     strike: "Power Drain",
                     dmg: 65,
-                    health: 190
+                    maxHealth: 190,
+                    curHealth: 190
             },{ 
                     //Wolverine
                     id: "1009718",
                     type: "Strength",
                     strike: "Claw Slash",
                     dmg: 70,
-                    health: 200
+                    maxHealth: 200,
+                    curHealth: 200
             }
             ],
             // Tier 4
@@ -106,30 +122,34 @@ new Vue({
                     //Storm
                     id: "1009629", 
                     type: "Weird",
-                    stike: "Lightning Bolt",
+                    strike: "Lightning Bolt",
                     dmg: 85,
-                    health: 250
+                    maxHealth: 250,
+                    curHealth: 250
                 },{
                     //She-Hulk
                     id: "1009583", 
                     type: "Strength",
                     strike: "Smash",
                     dmg: 80,
-                    health: 270
+                    maxHealth: 270,
+                    curHealth: 270
                 },{
                     //Thor
                     id: "1009664",
                     type: "Cosmic",
                     strike: "Mjolnir Strike",
                     dmg: 85,
-                    health: 265
+                    maxHealth: 265,
+                    curHealth: 265
                 },{
                     //Captain Marvel
                     id: "1010338",
                     type: "Cosmic",
                     strike: "Photon Blast",
                     dmg: 90,
-                    health: 255        
+                    maxHealth: 255,
+                    curHealth: 255
             }
             ],
             // Tier 5
@@ -139,33 +159,35 @@ new Vue({
                     type: "Tech",
                     strike: "Bot Swarm",
                     dmg: 90,
-                    health: 300
+                    maxHealth: 300,
+                    curHealth: 300
             },{
                     //Scarlet Witch
                     id: "1009562", 
                     type: "Weird",
                     strike: "Chaos Magic",
                     dmg: 100,
-                    health: 280
+                    maxHealth: 280,
+                    curHealth: 280
             },{
                     //Adam Warlock
                     id: "1010354", 
                     type: "Cosmic",
                     strike: "Quantum Surge",
                     dmg: 85,
-                    health: 315
+                    maxHealth: 315,
+                    curHealth: 315
             },{
                     //Jean Grey
                     id: "1009327",
                     type: "Cosmic",
                     strike: "Phoenix Flame",
                     dmg: 90,
-                    health: 300
+                    maxHealth: 300,
+                    curHealth: 300
             }
         ]
         ],
-        p1Characters: [],
-        p2Characters: [], 
     },
     created() {
         this.loadChars();
@@ -173,57 +195,110 @@ new Vue({
     methods: {
         async loadChars() {
 
-            const publicKey = '044a96a9f1fb46edb7605ba331cccf4d';
-            const privateKey = '3c5994b84cd1776f0bf0d74c353ee3145edc7416';
+            const publicKey = 'a6b31fddffdba5fee604a0eaa22ccbe2';
+            const privateKey = '1790cd89c66fae37b4032c334528bf0ca2c772b8';
             const timestamp = new Date().getTime().toString();
             const hash = md5(timestamp + privateKey + publicKey);
 
             for (i = 0; i < 5; i ++) {
 
-                    r1 = Math.floor(Math.random() * 4)
-                    r2 = Math.floor(Math.random() * 4) 
-                    const allyUrl = 'http://gateway.marvel.com/v1/public/characters/' + this.charData[i][r1].id + '?ts=' +timestamp + '&apikey=' +publicKey + '&hash=' + hash;
-                    const enemyUrl = 'http://gateway.marvel.com/v1/public/characters/' + this.charData[i][r2].id + '?ts=' +timestamp + '&apikey=' +publicKey + '&hash=' + hash;
+                r1 = Math.floor(Math.random() * 4)
+                r2 = Math.floor(Math.random() * 4) 
+                const allyUrl = 'http://gateway.marvel.com/v1/public/characters/' + this.charData[i][r1].id + '?ts=' +timestamp + '&apikey=' +publicKey + '&hash=' + hash;
+                const enemyUrl = 'http://gateway.marvel.com/v1/public/characters/' + this.charData[i][r2].id + '?ts=' +timestamp + '&apikey=' +publicKey + '&hash=' + hash;
 
-                    try {
-                        let allyResponse = await axios.get(allyUrl)
-                        let ally = allyResponse.data.data.results[0];
-                        newAlly = Object.assign(ally, this.charData[i][r1]);
-                        this.p1Characters.push(newAlly);
+                try {
+                    let allyResponse = await axios.get(allyUrl)
+                    let ally = allyResponse.data.data.results[0];
+                    newAlly = Object.assign(ally, this.charData[i][r1]);
+                    this.enemies.push(newAlly);
 
-                        let enemyResponse = await axios.get(enemyUrl);
-                        let enemy = enemyResponse.data.data.results[0];
-                        newEnemy = Object.assign(enemy, this.charData[i][r2]);
-                        this.p2Characters.push(newEnemy);
-                    } catch (err) {
-                        console.log(err)
-                    }
+                    let enemyResponse = await axios.get(enemyUrl);
+                    let enemy = enemyResponse.data.data.results[0];
+                    newEnemy = Object.assign(enemy, this.charData[i][r2]);
+                    this.allies.push(newEnemy);
+                } catch (err) {
+                    console.log(err)
+                }
             }
         },
-        playMove(activeId) {
-            console.log(this.whoseTurn);
-            console.log(activeId);
-            if (whoseTurn = 1) {
-                this.setActive(activeId);
-                
-            }
-            else { 
-                curPlayer = p2Characters;
+        
+        setActive(id) {
+            for (i = 0; i < this.allies.length; i ++) {
+                if (this.allies[i].id == id) {
+                    this.activeChar = i;
+                    return;
+                }
             }
         },
-        setActive(activeId) {
-            this.activeChar = activeId;
-            if (whoseTurn = 1) {
-                activeId = ;
+        setTarget(id) {
+            for (i = 0; i < this.enemies.length; i ++) {
+                if (this.enemies[i].id == id) {
+                    this.targetChar = i;
+                    return;
+                }
             }
-            activeId =      
         },
-        setTarget(activeId) {
-            this.targetChar = activeId;
+        playMove() {
+            let baseDmg = this.allies[this.activeChar].dmg;
+            let activeType = this.allies[this.activeChar].type;
+            let targetType = this.enemies[this.targetChar].type;
+    
+            let dmg = this.calcDmg(baseDmg, activeType, targetType);
+
+            let curHealth = this.enemies[this.targetChar].curHealth;
+            curHealth = curHealth - dmg;
+            if (curHealth < 1) {
+                this.enemies.splice(this.targetChar, 1);
+            } else {
+                this.enemies[this.targetChar].curHealth = curHealth;
+            }
+            this.isOver();
+            let temp = this.allies;
+            this.allies = this.enemies;
+            this.enemies = temp;
+          
         },
-        calcDmg(activeChar, actType, tarType ) {
-            
+        calcDmg(baseDmg, activeType, targetType ) {
+            let dmg = baseDmg - Math.floor(Math.random() * (baseDmg/2));
+            if (activeType == "Strength") {
+                if (targetType == "Weird") {
+                    dmg = dmg * .75;
+                } else if (targetType == "Tech") {
+                    dmg = dmg * 1.5;
+                }
+            } else if (activeType == "Tech") {
+                if (targetType == "Strength") {
+                    dmg = dmg * .75;
+                } else if (targetType == "Cosmic") {
+                    dmg = dmg * 2.5;
+                }
+            } else if (activeType == "Cosmic") {
+                if (targetType == "Tech") {
+                    dmg = dmg * .75;
+                } else if (targetType == "Weird") {
+                    dmg = dmg * 1.5;
+                }
+
+            } else if (activeType == "Weird") {
+                if (targetType == "Cosmic") {
+                    dmg = dmg * .75;
+                } else if (targetType == "Tech") {
+                    dmg = dmg * 1.5;
+                }
+            }
+            return dmg;
         },
-        async isOver() {}
+        isOver() {
+            if (this.allies.length < 1 ) {
+                this.gameOver = true;
+                this.endMsg = "Enemies WIN!";
+                console.log(endMsg);
+            } else if (this.enemies.lenght < 1) {
+                this.gameOver = true;
+                this.endMsg = "Allies WIN!";
+                console.log(endMsg);
+            }
+        }
     }
 })

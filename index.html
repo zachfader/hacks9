@@ -16,14 +16,14 @@
     <section id="powerup">
         <div class="field">
             <ul class="playerField">
-                <li class="card" v-for="eachCharacter in p1Characters">
-                    <character :char="eachCharacter" @click.native="playMove(eachCharacter.id)"></character>
+                <li class="card" v-for="eachCharacter in enemies" :key="eachCharacter.curHealth">
+                    <character :char="eachCharacter" @click.native="setTarget(eachCharacter.id)"></character>
                 </li>
             </ul>
-            <div class="fieldSplitLine"></div>
+            <button class="fieldSplitLine" v-on:click="playMove()"></button>
             <ul class="enemyField">
-                <li class="card" v-for="eachCharacter in p2Characters">
-                    <character :char="eachCharacter" @click.native="console.log(eachCharacter.id)"></character>
+                <li class="card" v-for="eachCharacter in allies" :key="eachCharacter.curHealth">
+                    <character :char="eachCharacter" @click.native="setActive(eachCharacter.id)"></character>
                 </li>
             </ul>
         </div>

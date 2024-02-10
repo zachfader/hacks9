@@ -30,7 +30,6 @@ Vue.component('character', {
             name: "",
             img: "",
             flv: "",
-            first: "",
             strike: "",
             type: "",
             dmg: 0,
@@ -47,12 +46,11 @@ Vue.component('character', {
                 this.name = this.char.name;
                 this.img = this.char.thumbnail.path + this.char.thumbnail.extension;
                 this.flv = this.char.desc;
-                //this.first = ;
                 this.strike = this.char.strike;
                 this.type = this.char.type;
                 this.dmg = this.char.dmg;
-                this.maxHealth = this.char.health;
-                this.curHealth = this.char.health;
+                this.maxHealth = this.char.maxHealth;
+                this.curHealth = this.char.curHealth;
             } catch (err) {
                 console.log(err)
             }
