@@ -8,14 +8,14 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="assets/js/md5.min.js"></script>
-    <script src="assets/js/hero.js"></script>
+    <script src="assets/js/character.js"></script>
     <script src="assets/js/power.js"></script>
     <link href="assets/powerup.css" rel="stylesheet">
 </head>
 <body>
     <section id='powerup'>
         <div v-for="eachCharacter in p1Characters">
-            <character :char="eachAlly"></character>
+            <character :char="eachCharacter"></character>
         </div>
         <div v-for="eachCharacter in p2Characters">
             <character :char="eachCharacter"></character>

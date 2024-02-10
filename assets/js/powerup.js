@@ -188,14 +188,16 @@ new Vue({
                         console.log(allyUrl);
                         let allyResponse = await axios.get(allyUrl)
                         let ally = allyResponse.data.data.results[0];
-                        ally.push(charData[i][r1]);
-                        this.p1Characters.push(ally);
+                        newAlly = Object.assign(ally, this.charData[i][r1]);
+                        console.log(newAlly);
+                        this.p1Characters.push(newAlly);
 
                         console.log(enemyUrl);
                         let enemyResponse = await axios.get(enemyUrl);
                         let enemy = enemyResponse.data.data.results[0];
-                        enemy.push(charData[i][r2]);
-                        this.p2Characters.push(enemy);
+                        newEnemy = Object.assign(enemy, this.charData[i][r2]);
+                        console.log(newEnemy);
+                        this.p2Characters.push(newEnemy);
                     } catch (err) {
                         console.log(err)
                     }

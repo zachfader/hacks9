@@ -9,10 +9,10 @@ Vue.component('character', {
         `<div id="character">
             <h1>{{name}}</h1>
             <img :src="getImg()">
-            <label :span="char.type">
+            <label :span="char.type"></label>
             <p>{{flv}}</p>
             <h2>{{strike}}</h2>
-            <h3>{{curHealth}}/{{maxHeath}}</h3>
+            <h3>{{curHealth}}/{{maxHealth}}</h3>
         </div>`,
     data() {
         return {
