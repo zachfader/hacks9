@@ -12,26 +12,26 @@ new Vue({
                     type: "Weird",
                     strike: "Fireworks",
                     dmg: 0,
-                    health: 0
+                    health: 100
                 }, {
                     //Hawkeye
                     id: "1009262",
                     type: "Tech",
                     strike: "Skillshot",
                     dmg: 0,
-                    health: 0
+                    health: 100
                  },{
                     //Daredevil
                     id: "1010808",
                     type: "Strength",
-                    strike: "",
+                    strike: "Billy Club Bash",
                     dmg: 0,
                     health: 0
                  }, { 
                     //Domino
                     id: "1009277",
                     type: "Tech",
-                    strike: "",
+                    strike: "Lucky Shot",
                     dmg: 0,
                     health: 0,
                 }
@@ -41,7 +41,7 @@ new Vue({
                 {
                     //Gamora
                     id: "1010763",
-                    type: "",
+                    type: "Cosmic",
                     strike: "",
                     dmg: 0,
                     health: 0
@@ -49,14 +49,14 @@ new Vue({
                     //Gambit
                     id: "1009313",
                     type: "Weird",
-                    strike: "",
+                    strike: "Kinetic Cards",
                     dmg: 0,
                     health: 0
                 },{ 
                     //Spider-Man
                     id: "1016181",
                     type: "Tech",
-                    strike: "",
+                    strike: "Venom Blast",
                     dmg: 0,
                     health: 0
                 },{ 
@@ -74,21 +74,21 @@ new Vue({
                     //Captain America
                     id: "1009220", 
                     type: "Strength",
-                    strike: "",
+                    strike: "Shield Throw",
                     dmg: 0,
                     health: 0
             },{ 
                     // Iron Man
                     id: "1009368",
                     type: "Tech",
-                    strike: "",
+                    strike: "Repulsor Blast",
                     dmg: 0,
                     health: 0
             },{ 
                     // Rogue 
                     id: "1009546",
                     type: "Strength",
-                    strike: "",
+                    strike: "Power Drain",
                     dmg: 0,
                     health: 0 
             },{ 
@@ -106,28 +106,28 @@ new Vue({
                     //Storm
                     id: "1009629", 
                     type: "Weird",
-                    stike: "",
+                    stike: "Lightning Bolt",
                     dmg: 0,
                     health: 0
                 },{
                     //She-Hulk
                     id: "1009583", 
                     type: "Strength",
-                    strike: "",
+                    strike: "Smash",
                     dmg: 0,
                     health: 0
                 },{
                     //Thor
                     id: "1009664",
                     type: "Cosmic",
-                    strike: "",
+                    strike: "Mjolnir Strike",
                     dmg: 0,
                     health: 0
                 },{
                     //Captain Marvel
                     id: "1010338",
                     type: "Cosmic",
-                    strike: "",
+                    strike: "Photon Blast",
                     dmg: 0,
                     health: 0        
             }
@@ -137,28 +137,28 @@ new Vue({
                 //Ultron
                 id: "1009685", 
                 type: "Tech",
-                strike: "",
+                strike: "Bot Swarm",
                 dmg: 0,
                 health: 0
             },{
                 //Scarlet Witch
                 id: "1009562", 
                 type: "Weird",
-                strike: "",
+                strike: "Chaos Magic",
                 dmg:0,
                 health: 0
             },{
                 //Adam Warlock
                 id: "1010354", 
                 type: "Cosmic",
-                strike: "",
+                strike: "Quantum Surge",
                 dmg:0,
                 health:0
             },{
                 //Jean Grey
                 id: "1009327",
                 type: "Cosmic",
-                strike: "",
+                strike: "Phoenix Flame",
                 dmg:0,
                 health:0
             }
