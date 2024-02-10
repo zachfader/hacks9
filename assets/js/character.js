@@ -6,10 +6,10 @@ Vue.component('character', {
     }
     ,template:
         /*html*/
-        `<div id="character">
+        `<div>
             <h1>{{name}}</h1>
             <img :src="getImg()">
-            <label :span="char.type"></label>
+            <h3>{{type}}</h3>
             <p>{{flv}}</p>
             <h2>{{strike}}</h2>
             <h3>{{curHealth}}/{{maxHealth}}</h3>

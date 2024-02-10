@@ -8,62 +8,45 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="assets/js/md5.min.js"></script>
-    <script src="assets/js/hero.js"></script>
+    <script src="assets/js/character.js"></script>
     <script src="assets/js/power.js"></script>
-    <link href="assets/powerup.css" rel="stylesheet">
+    <link href="formattingTest.css" rel="stylesheet">
 </head>
 <body>
-        <div style="width: 110px; height: 160px; background: rgba(191.23, 194.42, 34.83, 0.56); box-shadow: 4px 4px 4px; border: 1px #FCFCFC solid;">
-            <div style="width: 100px; height: 150px; background: #D9D9D9; border-radius: 6px; position: relative; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex; margin: 5px">
-                <div style="width: 100px; height: 66px; position: relative">
-                    <div style="width: 90px; height: 60px; left: 5px; top: 6px; position: absolute; background: #FB0000; border-radius: 5px"></div>
-                    <div style="width: 14px; height: 14px; left: 86px; top: 0px; position: absolute; background: white; border-radius: 9999px"></div>
-                    <div style="width: 14px; height: 14px; left: 0px; top: 0px; position: absolute; background: white; border-radius: 9999px"></div>
-                </div>
-                <div style="height: 59px; position: relative">
-                    <div style="width: 90px; height: 16px; left: 0.04px; top: 43px; position: absolute; margin-left: 5px; margin-right: 5px; margin-bottom: 3px">
-                        <div style="width: 90px; height: 16px; left: 0px; top: 0px; position: absolute; background: #D9D9D9; border-radius: 4px; border: 1px black solid"></div>
-                        <div style="width: 82px; height: 9px; left: 4px; top: 4px; position: absolute; color: black; font-size: 6px; font-family: Inter; font-weight: 900; word-wrap: break-word">INSERT FLAVOR HERE</div>
-                    </div>
-                    <div style="width: 90.07px; height: 18.37px; left: 0px; top: 20.81px; position: absolute; margin-left: 5px; margin-right: 5px; margin-bottom: 3px">
-                        <div style="width: 90px; height: 18px; left: 0px; top: 0.37px; position: absolute; background: #D9D9D9; border-radius: 4px; border: 1px black solid"></div>
-                        <div style="width: 82px; height: 9px; left: 4.04px; top: 5.19px; position: absolute; color: black; font-size: 6px; font-family: Inter; font-weight: 900; word-wrap: break-word">INSERT ABILITY HERE</div>
-                    </div>
-                    <div style="width: 90px; height: 18px; left: 0.04px; top: 0px; position: absolute; margin-left: 5px; margin-right: 5px; margin-bottom: 3px">
-                        <div style="width: 90px; height: 18px; left: 0px; top: 0px; position: absolute; background: #D9D9D9; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 4px; border: 1px #7B8600 solid"></div>
-                        <div style="width: 82px; height: 12px; left: 4px; top: 4px; position: absolute; color: black; font-size: 6px; font-family: Inter; font-weight: 900; word-wrap: break-word">INSERT STRIKE HERE</div>
-                    </div>
-                </div>
-                <div style="width: 93px; height: 14px; position: relative">
-                    <div style="width: 16px; height: 14px; left: 0px; top: 0px; position: absolute">
-                        <img style="width: 16px; height: 14px; left: 0px; top: 0px; position: absolute" src="https://via.placeholder.com/16x14" />
-                        <div style="width: 12px; height: 7px; left: 2px; top: 2px; position: absolute; color: white; font-size: 6px; font-family: Inter; font-weight: 900; word-wrap: break-word">100</div>
-                    </div>
-                    <div style="width: 73px; height: 12px; left: 20px; top: 0px; position: absolute; background: #FF0000"></div>
-                    <div style="width: 73px; height: 12px; left: 20px; top: 0px; position: absolute; background: #78B159"></div>
-                </div>
-            </div>
+    <section id="powerup">
+        <!--<div class="staticField">
+            <ul class="hand">
+                <li v-for="eachCharacter in p1Characters">
+                    <character :char="eachCharacter"></character>
+                </li>
+            </ul>
         </div>
-        <div class="card">
-            <div class="cardBase">
-                <div class="portrait">
-                    <img class="imgHolder" :src="getImg()"></div>
-                    <div class="costHolder"></div>
-                    <div class="costBox"></div>
-                </div>
-                <div class="infoPane">
-                    <div class="strikePane"></div>
-                    <div class="abilityPane"></div>
-                    <div class="flavorPane">{{name}}</div>
-                </div>
-                <div class="healthPane">
-                    <div class="healthIcon"></div>
-                    <div class="healthBar"></div>
-                </div>
-            </div>
+        <div class="staticField">
+            <ul class="hand">
+                <li v-for="eachCharacter in p2Characters">
+                    <character :char="eachCharacter"></character>
+                </li>
+            </ul>
+        </div>-->
+        <div class="field">
+            <ul class="playerField">
+                <li v-for="eachCharacter in p1Characters">
+                    <!--<button :click="playMove(eachCharacter.id)"></button>-->
+                    <character :char="eachCharacter" @click.native="playMove(eachCharacter.id)"></character>
+                </li>
+            </ul>
+            <ul class="enemyField">
+                <li v-for="eachCharacter in p2Characters">
+                    <!--<button :click="playMove('eachCharacter.id')"></button>-->
+                    <character :char="eachCharacter" @click.native="console.log(eachCharacter.id)"></character>
+                </li>
+            </ul>
         </div>
-        <script src="assets/js/powerup.js"></script>
+    </section>
+    <script src="assets/js/powerup.js"></script>
 </body>
 </html>
+
+
 
 

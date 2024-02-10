@@ -15,14 +15,14 @@ new Vue({
                     health: 100
                 }, {
                     //Hawkeye
-                    id: "1009262",
+                    id: "1010808",
                     type: "Tech",
                     strike: "Skillshot",
                     dmg: 0,
                     health: 100
                  },{
                     //Daredevil
-                    id: "1010808",
+                    id: "1009262",
                     type: "Strength",
                     strike: "Billy Club Bash",
                     dmg: 0,
@@ -186,35 +186,23 @@ new Vue({
                     const enemyUrl = 'http://gateway.marvel.com/v1/public/characters/' + this.charData[i][r2].id + '?ts=' +timestamp + '&apikey=' +publicKey + '&hash=' + hash;
 
                     try {
-                        console.log(allyUrl);
                         let allyResponse = await axios.get(allyUrl)
                         let ally = allyResponse.data.data.results[0];
                         newAlly = Object.assign(ally, this.charData[i][r1]);
-                        console.log(newAlly);
                         this.p1Characters.push(newAlly);
 
-                        console.log(enemyUrl);
                         let enemyResponse = await axios.get(enemyUrl);
                         let enemy = enemyResponse.data.data.results[0];
                         newEnemy = Object.assign(enemy, this.charData[i][r2]);
-                        console.log(newEnemy);
                         this.p2Characters.push(newEnemy);
                     } catch (err) {
                         console.log(err)
                     }
             }
         },
-        /**async loadPowers() {
-            try {
-                let response = await axios.get();
-                let data = response.data;
-                this.powerData = data[this.date];
-            } catch (err) {
-                console.log(err)
-            }
-        }**/
-        async playMove(player, activeId, targetId) {
-
+        playMove(activeId) {
+            console.log(this.whoseTurn);
+            console.log(activeId);
         },
         async isOver() {}
     }
