@@ -16,13 +16,13 @@
     <section id="powerup">
         <div class="field">
             <ul class="playerField">
-                <li v-for="eachCharacter in p1Characters">
+                <li class="card" v-for="eachCharacter in p1Characters">
                     <character :char="eachCharacter" @click.native="playMove(eachCharacter.id)"></character>
                 </li>
             </ul>
             <div class="fieldSplitLine"></div>
             <ul class="enemyField">
-                <li v-for="eachCharacter in p2Characters">
+                <li class="card" v-for="eachCharacter in p2Characters">
                     <character :char="eachCharacter" @click.native="console.log(eachCharacter.id)"></character>
                 </li>
             </ul>

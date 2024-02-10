@@ -6,13 +6,24 @@ Vue.component('character', {
     }
     ,template:
         /*html*/
-        `<div>
-            <h1>{{name}}</h1>
-            <img :src="getImg()">
-            <h3>{{type}}</h3>
-            <p>{{flv}}</p>
-            <h2>{{strike}}</h2>
-            <h3>{{curHealth}}/{{maxHealth}}</h3>
+        `<div class="card">
+            <div class="imgHolder">
+                <img :src="getImg()">
+            </div>
+            <div class="nameTag">
+                <p>{{name}} - {{type}}</p>
+            </div>
+            <div class="infoPane">
+                <div class="strikePane">
+                    <h3>{{strike}}</h3>
+                </div>
+                <div class="flavorPane">
+                    <p>{{flv}}</p>
+                </div>
+            </div>
+            <div class="healthPane">
+                <h3>{{curHealth}}/{{maxHealth}}</h3>
+            </div>
         </div>`,
     data() {
         return {
