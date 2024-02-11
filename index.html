@@ -21,6 +21,14 @@
                 <div class="enemyHealth">
                     <div class="enemyCrtHealth"></div>
                 </div>
+                <div class="intro">
+                    <h1>Welcome to an all-out</br>Marvel brawl!</h1>
+                    <p>Use your type advantages and</br>raw power to eliminate your</br>opposition. Be the last one</br>standing and claim victory!</p>
+                </div>
+                <div class="intro">
+                    <h1>Getting Started</h1>
+                    <p>Press the <strong>Draw Cards</strong> button</br>to generate two random decks.</br>Player 1's cards will populate in</br>the bottom pane and Player 2's</br>will populate on top.</p>
+                </div>
                 <div class="enemyMana">
                     <div class="enemyCrtMana"></div>
                 </div>
@@ -29,7 +37,7 @@
             <div class="fieldLine">
                 <div class="battleTokenArea">
                     <button class="battleTokenSlot" v-on:click="loadChars()">
-                        <img class="battleToken" src="https://via.placeholder.com/113x113" />
+                        <img class="battleToken" src="assets/images/cards.png">
                     </button>
                 </div>
             </div>
@@ -37,6 +45,18 @@
             <div class="playerField">
                 <div class="playerHealth">
                     <div class="playerCrtHealth"></div>
+                </div>
+                <div class="intro">
+                    <h1>Tips & Rules</h1>
+                    <p>Click on a card in your deck to</br>choose a hero or villian, then</br>click an opposing card to</br>select a target. Lastly, press </br>the <strong>Action</strong> button to engage.</p>
+                </div>
+                <div class="intro">
+                    <h1>Multiplayer and Types</h1>
+                    <p>Play will alternate on each <strong>Action</strong> by</br>swapping the top and bottom panes.</br>Simply trade mouse control on each turn</br>to keep the action going!</p>
+                    <p>Please review the <strong>Type Advantages</strong></br>in the following blurb.</p>
+                </div>
+                <div class="intro">
+                    <img src="assets/images/chart.png">
                 </div>
                 <div class="playerMana">
                     <div class="playerCrtMana"></div>
@@ -61,7 +81,7 @@
             <div class="fieldLine">
                 <div class="battleTokenArea">
                     <button class="battleTokenSlot" v-on:click="playMove()">
-                        <img class="battleToken" src="https://via.placeholder.com/113x113" />
+                        <img class="battleToken" src="assets/images/attack.png">
                     </button>
                 </div>
             </div>

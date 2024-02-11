@@ -20,11 +20,16 @@ Vue.component('character', {
                 <div class="infoRegion">
                     <div class="flavorRegion">
                         <div class="flavorBox"></div>
-                        <div class="flavorText">{{name}}</div>
+                        <div class="flavorText">
+                            <h1>{{strike}}</h1>
+                            <h1>{{dmg}} DMG</h1>
+                        </div>
                     </div>
                     <div class="strikeRegion">
                         <div class="strikeBox"></div>
-                        <div class="strikeText">{{strike}}</div>
+                        <div class="strikeText">
+                            <h2>{{name}}</h2>
+                        </div>
                     </div>
                 </div>
                 <div class="healthRegion">

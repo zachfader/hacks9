@@ -1,9 +1,29 @@
 body {
     position:relative
 }
-
+.intro {
+    min-width: 200px; min-height: 200px; margin: 10px; background: #457b9d;
+    border: 6px #ffc300 solid; border-radius: 6px; display: inline; color: #1d3557; text-align: center;
+}
+.intro h1 {
+    margin: 10px;
+    font-size: 32px;
+}
+.intro p {
+    margin: 10px;
+    font-size: 20px;
+}
+.intro img {
+    height: 200px;
+}
 .card {
     min-width: 135px; min-height: 205px; margin: 10px; background: #ffc300; border-radius: 6px; display: inline
+}
+.card:hover{
+    min-width: 135px; min-height: 205px; margin: 10px; background: #d62828; border-radius: 6px; display: inline
+}
+.card:active{
+    min-width: 135px; min-height: 205px; margin: 10px; background: green; border-radius: 6px; display: inline
 }
 .playerCards {
     display: inline-flex;
@@ -27,10 +47,10 @@ body {
     width: 155px; height: 155px; position: absolute; right: 0px; top: -80px
 }
 .battleTokenSlot {
-    width: 155px; height: 155px; background: #d62828; border-radius: 9999px; border: 6px #ffc300 solid
+    width: 155px; height: 155px; background: #d62828; border-radius: 9999px; border: 6px #ffc300 solid; text-align: center; color: #1d3557
 }
 .battleToken {
-    width: 113px; height: 113px;
+    width: 100px; height: 100px;
 }
 .bars {
     width: 100px; height: 250px;
