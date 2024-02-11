@@ -11,23 +11,76 @@
     <script src="assets/js/character.js"></script>
     <script src="assets/js/power.js"></script>
     <link href="assets/powerup.css" rel="stylesheet">
+    <link href="assets/field.css" rel="stylesheet">
+    <link href="assets/card.css" rel="stylesheet">
 </head>
 <body>
-    <section id="powerup">
-        <div class="field">
-            <ul class="playerField">
-                <li class="card" v-for="eachCharacter in enemies" :key="eachCharacter.curHealth">
-                    <character :char="eachCharacter" @click.native="setTarget(eachCharacter.id)"></character>
-                </li>
-            </ul>
-            <button class="fieldSplitLine" v-on:click="playMove()"></button>
-            <ul class="enemyField">
-                <li class="card" v-for="eachCharacter in allies" :key="eachCharacter.curHealth">
-                    <character :char="eachCharacter" @click.native="setActive(eachCharacter.id)"></character>
-                </li>
-            </ul>
+    <section id="powerup">  
+        <div class="staticField" v-if="setup">
+            <div class="enemyField">
+                <div class="enemyHealth">
+                    <div class="enemyCrtHealth"></div>
+                </div>
+                <div class="enemyMana">
+                    <div class="enemyCrtMana"></div>
+                </div>
+            </div>
+                
+            <div class="fieldLine">
+                <div class="battleTokenArea">
+                    <button class="battleTokenSlot" v-on:click="loadChars()">
+                        <img class="battleToken" src="https://via.placeholder.com/113x113" />
+                    </button>
+                </div>
+            </div>
+
+            <div class="playerField">
+                <div class="playerHealth">
+                    <div class="playerCrtHealth"></div>
+                </div>
+                <div class="playerMana">
+                    <div class="playerCrtMana"></div>
+                </div>
+            </div>
         </div>
-    </section>
+        <div class="staticField" v-else>
+            <div class="enemyField">
+                <div class="enemyHealth">
+                    <div class="enemyCrtHealth"></div>
+                </div>
+                <ul class="playerCards">
+                    <li class="card" v-for="eachCharacter in enemies" :key="eachCharacter.curHealth">
+                        <character :char="eachCharacter" @click.native="setTarget(eachCharacter.id)"></character>
+                    </li>
+                </ul>
+                <div class="enemyMana">
+                    <div class="enemyCrtMana"></div>
+                </div>
+            </div>
+                
+            <div class="fieldLine">
+                <div class="battleTokenArea">
+                    <button class="battleTokenSlot" v-on:click="playMove()">
+                        <img class="battleToken" src="https://via.placeholder.com/113x113" />
+                    </button>
+                </div>
+            </div>
+
+            <div class="playerField">
+                <div class="playerHealth">
+                    <div class="playerCrtHealth"></div>
+                </div>
+                    <ul class="playerCards">
+                        <li class="card" v-for="eachCharacter in allies" :key="eachCharacter.curHealth">
+                            <character :char="eachCharacter" @click.native="setActive(eachCharacter.id)"></character>
+                        </li>
+                    </ul>
+                <div class="playerMana">
+                    <div class="playerCrtMana"></div>
+                </div>
+            </div>
+        </div>
+    </section> 
     <script src="assets/js/powerup.js"></script>
 </body>
 </html>

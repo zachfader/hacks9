@@ -1,12 +1,11 @@
 new Vue({
     el: '#powerup',
     data: {
-        enemies: [],
-        allies: [], 
-        activeChar: -1,
-        targetChar: -1,
+        setup: true,
         gameOver: false,
         endMsg: "",
+        enemies: [],
+        allies: [], 
         charData: [
             // Tier 1
             [
@@ -17,7 +16,10 @@ new Vue({
                     strike: "Fireworks",
                     dmg: 45,
                     maxHealth: 100,
-                    curHealth: 100
+                    curHealth: 100,
+                    selected: false,
+                    tier: 1,
+                    icon: "assets/images/weird.png"
                 },{
                     //Hawkeye
                     id: "1010808",
@@ -25,7 +27,10 @@ new Vue({
                     strike: "Skillshot",
                     dmg: 40,
                     maxHealth: 100,
-                    curHealth: 100
+                    curHealth: 100,
+                    selected: false,
+                    tier: 1,
+                    icon: "assets/images/tech.png"
                  },{
                     //Daredevil
                     id: "1009262",
@@ -33,7 +38,10 @@ new Vue({
                     strike: "Billy Club Bash",
                     dmg: 40,
                     maxHealth: 120,
-                    curHealth: 120
+                    curHealth: 120,
+                    selected: false,
+                    tier: 1,
+                    icon: "assets/images/strength.png"
                  },{ 
                     //Domino
                     id: "1009277",
@@ -41,7 +49,10 @@ new Vue({
                     strike: "Lucky Shot",
                     dmg: 50,
                     maxHealth: 110,
-                    curHealth: 110
+                    curHealth: 110,
+                    selected: false,
+                    tier: 1,
+                    icon: "assets/images/tech.png"
                 }
             ],
             //Tier 2
@@ -53,7 +64,10 @@ new Vue({
                     strike: "Furious Slashes",
                     dmg: 45,
                     maxHealth: 130,
-                    curHealth: 130
+                    curHealth: 130,
+                    selected: false,
+                    tier: 2,
+                    icon: "assets/images/cosmic.png"
                 },{ 
                     //Gambit
                     id: "1009313",
@@ -61,7 +75,10 @@ new Vue({
                     strike: "Kinetic Cards",
                     dmg: 50,
                     maxHealth: 150,
-                    curHealth: 150
+                    curHealth: 150,
+                    selected: false,
+                    tier: 2,
+                    icon: "assets/images/weird.png"
                 },{ 
                     //Spider-Man
                     id: "1016181",
@@ -69,7 +86,10 @@ new Vue({
                     strike: "Venom Blast",
                     dmg: 55,
                     maxHealth: 140,
-                    curHealth: 140
+                    curHealth: 140,
+                    selected: false,
+                    tier: 2,
+                    icon: "assets/images/tech.png"
                 },{ 
                     //Mystique
                     id:"1009465",
@@ -77,7 +97,10 @@ new Vue({
                     strike: "Sneak Attack",
                     dmg: 50,
                     maxHealth: 160,
-                    curHealth: 160
+                    curHealth: 160,
+                    selected: false,
+                    tier: 2,
+                    icon: "assets/images/weird.png"
                 }
             ],
             // Tier 3
@@ -89,7 +112,10 @@ new Vue({
                     strike: "Shield Throw",
                     dmg: 60,
                     maxHealth: 210,
-                    curHealth: 210
+                    curHealth: 210,
+                    selected: false,
+                    tier: 3,
+                    icon: "assets/images/strength.png"
             },{ 
                     // Iron Man
                     id: "1009368",
@@ -97,7 +123,10 @@ new Vue({
                     strike: "Repulsor Blast",
                     dmg: 70,
                     maxHealth: 200,
-                    curHealth: 200
+                    curHealth: 200,
+                    selected: false,
+                    tier: 3,
+                    icon: "assets/images/tech.png"
             },{ 
                     // Rogue 
                     id: "1009546",
@@ -105,7 +134,10 @@ new Vue({
                     strike: "Power Drain",
                     dmg: 65,
                     maxHealth: 190,
-                    curHealth: 190
+                    curHealth: 190,
+                    selected: false,
+                    tier: 3,
+                    icon: "assets/images/strength.png"
             },{ 
                     //Wolverine
                     id: "1009718",
@@ -113,7 +145,10 @@ new Vue({
                     strike: "Claw Slash",
                     dmg: 70,
                     maxHealth: 200,
-                    curHealth: 200
+                    curHealth: 200,
+                    selected: false,
+                    tier: 3,
+                    icon: "assets/images/strength.png"
             }
             ],
             // Tier 4
@@ -125,7 +160,10 @@ new Vue({
                     strike: "Lightning Bolt",
                     dmg: 85,
                     maxHealth: 250,
-                    curHealth: 250
+                    curHealth: 250,
+                    selected: false,
+                    tier: 4,
+                    icon: "assets/images/weird.png"
                 },{
                     //She-Hulk
                     id: "1009583", 
@@ -133,7 +171,10 @@ new Vue({
                     strike: "Smash",
                     dmg: 80,
                     maxHealth: 270,
-                    curHealth: 270
+                    curHealth: 270,
+                    selected: false,
+                    tier: 4,
+                    icon: "assets/images/strength.png"
                 },{
                     //Thor
                     id: "1009664",
@@ -141,7 +182,10 @@ new Vue({
                     strike: "Mjolnir Strike",
                     dmg: 85,
                     maxHealth: 265,
-                    curHealth: 265
+                    curHealth: 265,
+                    selected: false,
+                    tier: 4,
+                    icon: "assets/images/cosmic.png"
                 },{
                     //Captain Marvel
                     id: "1010338",
@@ -149,7 +193,10 @@ new Vue({
                     strike: "Photon Blast",
                     dmg: 90,
                     maxHealth: 255,
-                    curHealth: 255
+                    curHealth: 255,
+                    selected: false,
+                    tier: 4,
+                    icon: "assets/images/cosmic.png"
             }
             ],
             // Tier 5
@@ -160,7 +207,10 @@ new Vue({
                     strike: "Bot Swarm",
                     dmg: 90,
                     maxHealth: 300,
-                    curHealth: 300
+                    curHealth: 300,
+                    selected: false,
+                    tier: 5,
+                    icon: "assets/images/tech.png"
             },{
                     //Scarlet Witch
                     id: "1009562", 
@@ -168,7 +218,10 @@ new Vue({
                     strike: "Chaos Magic",
                     dmg: 100,
                     maxHealth: 280,
-                    curHealth: 280
+                    curHealth: 280,
+                    selected: false,
+                    tier: 5,
+                    icon: "assets/images/weird.png"
             },{
                     //Adam Warlock
                     id: "1010354", 
@@ -176,7 +229,10 @@ new Vue({
                     strike: "Quantum Surge",
                     dmg: 85,
                     maxHealth: 315,
-                    curHealth: 315
+                    curHealth: 315,
+                    selected: false,
+                    tier: 5,
+                    icon: "assets/images/cosmic.png"
             },{
                     //Jean Grey
                     id: "1009327",
@@ -184,16 +240,19 @@ new Vue({
                     strike: "Phoenix Flame",
                     dmg: 90,
                     maxHealth: 300,
-                    curHealth: 300
+                    curHealth: 300,
+                    selected: false,
+                    tier: 5,
+                    icon: "assets/images/cosmic.png"
             }
         ]
         ],
-    },
-    created() {
-        this.loadChars();
+        activeChar: -1,
+        targetChar: -1,
     },
     methods: {
         async loadChars() {
+            this.setup = false;
 
             const publicKey = 'a6b31fddffdba5fee604a0eaa22ccbe2';
             const privateKey = '1790cd89c66fae37b4032c334528bf0ca2c772b8';
@@ -227,15 +286,21 @@ new Vue({
             for (i = 0; i < this.allies.length; i ++) {
                 if (this.allies[i].id == id) {
                     this.activeChar = i;
+                    this.allies[i].selected = true;
                     return;
+                } else {
+                    this.allies[i].selected = false;
                 }
             }
         },
         setTarget(id) {
             for (i = 0; i < this.enemies.length; i ++) {
                 if (this.enemies[i].id == id) {
+                    this.allies[i].selected = true;
                     this.targetChar = i;
                     return;
+                } else {
+                    this.enemies[i].selected = false;
                 }
             }
         },
@@ -250,9 +315,13 @@ new Vue({
             curHealth = curHealth - dmg;
             if (curHealth < 1) {
                 this.enemies.splice(this.targetChar, 1);
+                this.allies[this.activeChar].selected = false;
             } else {
                 this.enemies[this.targetChar].curHealth = curHealth;
+                this.allies[this.activeChar].selected = false;
+                this.enemies[this.targetChar].selected = false;
             }
+            
             this.isOver();
             let temp = this.allies;
             this.allies = this.enemies;
@@ -287,6 +356,7 @@ new Vue({
                     dmg = dmg * 1.5;
                 }
             }
+            dmg = Math.floor(dmg);
             return dmg;
         },
         isOver() {

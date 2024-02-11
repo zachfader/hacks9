@@ -6,23 +6,35 @@ Vue.component('character', {
     }
     ,template:
         /*html*/
-        `<div class="card">
-            <div class="imgHolder">
-                <img :src="getImg()">
-            </div>
-            <div class="nameTag">
-                <p>{{name}} - {{type}}</p>
-            </div>
-            <div class="infoPane">
-                <div class="strikePane">
-                    <h3>{{strike}}</h3>
+        `<div>
+            <div :class="char.type">
+                <div class="portraitRegion">
+                    <div class="portraitHolder">
+                        <img :src="getImg()">
+                    </div>
+                    <div class="portraitType"> 
+                        <img :src="char.icon">
+                    </div>
+                    <h3 class="portraitCost">{{tier}}</h3>
                 </div>
-                <div class="flavorPane">
-                    <p>{{flv}}</p>
+                <div class="infoRegion">
+                    <div class="flavorRegion">
+                        <div class="flavorBox"></div>
+                        <div class="flavorText">{{name}}</div>
+                    </div>
+                    <div class="strikeRegion">
+                        <div class="strikeBox"></div>
+                        <div class="strikeText">{{strike}}</div>
+                    </div>
                 </div>
-            </div>
-            <div class="healthPane">
-                <h3>{{curHealth}}/{{maxHealth}}</h3>
+                <div class="healthRegion">
+                    <div class="healthIcon">
+                        <img class="healthJPEG" src="assets/images/heart.png" />
+                        <div class="healthInt">{{curHealth}}</div>
+                    </div>
+                    <div class="healthBar"></div>
+                    <div class="healthCrt"></div>
+                </div>
             </div>
         </div>`,
     data() {
@@ -34,7 +46,9 @@ Vue.component('character', {
             type: "",
             dmg: 0,
             maxHealth: 0,
-            curHealth: 0
+            curHealth: 0,
+            selected: false,
+            tier: 0
             }
     },
     created() {
@@ -51,6 +65,8 @@ Vue.component('character', {
                 this.dmg = this.char.dmg;
                 this.maxHealth = this.char.maxHealth;
                 this.curHealth = this.char.curHealth;
+                this.selected = this.char.selected;
+                this.tier = this.char.tier;
             } catch (err) {
                 console.log(err)
             }
