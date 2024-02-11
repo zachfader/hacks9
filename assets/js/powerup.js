@@ -263,8 +263,8 @@ new Vue({
 
                 r1 = Math.floor(Math.random() * 4)
                 r2 = Math.floor(Math.random() * 4) 
-                const allyUrl = 'http://gateway.marvel.com/v1/public/characters/' + this.charData[i][r1].id + '?ts=' +timestamp + '&apikey=' +publicKey + '&hash=' + hash;
-                const enemyUrl = 'http://gateway.marvel.com/v1/public/characters/' + this.charData[i][r2].id + '?ts=' +timestamp + '&apikey=' +publicKey + '&hash=' + hash;
+                const allyUrl = 'https://gateway.marvel.com/v1/public/characters/' + this.charData[i][r1].id + '?ts=' +timestamp + '&apikey=' +publicKey + '&hash=' + hash;
+                const enemyUrl = 'https://gateway.marvel.com/v1/public/characters/' + this.charData[i][r2].id + '?ts=' +timestamp + '&apikey=' +publicKey + '&hash=' + hash;
 
                 try {
                     let allyResponse = await axios.get(allyUrl)
